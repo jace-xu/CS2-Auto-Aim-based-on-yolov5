@@ -20,11 +20,11 @@ weights = r"D:\Python files\cs2-autoaim\9may_yolov5x.pt"
 
 # 加载模型
 device = select_device('')
-model_data = torch.load(weights, map_location=device)
-model = model_data['model'].float().fuse().eval()
+model = attempt_load(weights, device=device)  # 修改这里，将 map_location 改为 device
+model.float().fuse().eval() # 确保模型进入评估模式并进行融合（如果适用）
 
 # 获取类别名
-names = model.names
+names = model.names if hasattr(model, 'names') else model.module.names if hasattr(model, 'module') else model.model.names # 兼容不同保存方式的names获取
 
 # 初始化 MSS 截屏（监视器1 = 全屏）
 sct = mss.mss()
