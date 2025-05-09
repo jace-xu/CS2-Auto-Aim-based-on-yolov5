@@ -16,7 +16,7 @@ from utils.general import non_max_suppression, scale_boxes
 from utils.torch_utils import select_device
 
 # 设置模型权重路径
-weights = os.path.join(ROOT, "runs", "train", "exp7", "weights", "best.pt")
+weights = r"D:\Python files\cs2-autoaim\9may_yolov5x.pt"
 
 # 加载模型
 device = select_device('')
@@ -49,15 +49,15 @@ while True:
     pred = model(img_tensor)[0]
     pred = non_max_suppression(pred, conf_thres=0.25, iou_thres=0.45)
 
-    # 统计 CT 数量并绘制检测框
-    ct_count = 0
+    # 统计 T 数量并绘制检测框
+    t_count = 0
     for det in pred:
         if det is not None and len(det):
             det[:, :4] = scale_boxes(img_tensor.shape[2:], det[:, :4], frame.shape).round()
             for *xyxy, conf, cls in det:
                 class_name = names[int(cls)]
-                if class_name == "CT":
-                    ct_count += 1
+                if class_name == "T":
+                    t_count += 1
                     x1, y1, x2, y2 = map(int, xyxy)
                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)  # 红框
                     label = f"{class_name} {conf:.2f}"
@@ -66,7 +66,7 @@ while True:
 
     # 显示数量和 FPS
     fps = 1 / (time.time() - start_time)
-    cv2.putText(frame, f"CT Targets: {ct_count}", (20, 40),
+    cv2.putText(frame, f"T Targets: {t_count}", (20, 40),
                 cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 3)
     cv2.putText(frame, f"FPS: {int(fps)}", (20, 80),
                 cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 255, 0), 2)
