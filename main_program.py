@@ -50,10 +50,10 @@ from tkinter import simpledialog
 from tkinter import messagebox
 
 # Load YOLOv5 model from local,PLEASE CHANGE YOUR OWN PATH WHEN YOU ARE USING
-yolov5_code_path = 'D:/code/ai-aim-ver1/yolov5'  # YOLOv5 code path
-model_weights_path = 'D:/code/ai-aim-ver1/best.pt'  # Model file path
+yolov5_code_path = 'D:/Python files/cs2-autoaim/yolov5_run'  # YOLOv5 code path
+model_weights_path = 'D:/Python files/cs2-autoaim/9may_yolov5s_final.pt'  # Model file path
 
-# Load model
+# Load models
 try:
     model = torch.hub.load(
         yolov5_code_path,  # YOLOv5 code directory
