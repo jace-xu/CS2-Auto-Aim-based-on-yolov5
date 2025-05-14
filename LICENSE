@@ -1,0 +1,17 @@
+This project is licensed under the GNU General Public License v3.0.
+
+Copyright (c) 2025 jace-xu
+
+This project uses the YOLOv5 object detection framework developed by Ultralytics (https://github.com/ultralytics/yolov5),
+which is licensed under the GNU General Public License v3.0. Accordingly, this project is also licensed under the terms
+of the GNU GPLv3.
+
+You are free to use, modify, and distribute this project under the following conditions:
+
+1. You must disclose your source code when distributing the software (including derivative works).
+2. You must include this license and a copy of the original YOLOv5 license in any distribution.
+3. You must state clearly what modifications you made to the original YOLOv5 code.
+
+NO WARRANTY IS PROVIDED. THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+
+For the full license text, see <https://www.gnu.org/licenses/gpl-3.0.html>.
