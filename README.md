@@ -206,4 +206,4 @@ A: Verify paths and ensure dependencies are installed.
 
 ## Contact
 
-For questions or issues, contact the project maintainer.
+For questions or issues, contact the project maintainer at 2661567025@qq.com.
